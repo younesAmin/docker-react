@@ -1,3 +1,4 @@
+language: generic
 sudo: required
 services:
   - docker
@@ -5,7 +6,7 @@ services:
 before_install:
   - docker build -t younes-amine/docker-react -f Dcokerfile.dev .
 script:
-  - docker run younes-amine/docker-react npm run test -- --coverage
+  - docker run -e CI=true younes-amine/docker-react npm run test
 
 
 
